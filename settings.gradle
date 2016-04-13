@@ -1,1 +1,1 @@
-include ':library', ':myapplication'
+include ':library', ':myapplication', ':dagger', ':dagger-compiler'
