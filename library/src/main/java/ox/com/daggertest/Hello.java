@@ -1,10 +1,11 @@
 package ox.com.daggertest;
 
-import javax.inject.Inject;
+
+import javax.inject.Inject2;
 
 public class Hello {
 
-    @Inject
+    @Inject2
     LoggerApp loggerApp;
 
     public void sayHello() {
