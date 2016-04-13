@@ -1,17 +1,14 @@
 package ox.com.daggertest;
 
+import orchextra.dagger.Module;
+import orchextra.dagger.Provides;
+import orchextra.javax.inject.Singleton;
 
-import javax.inject.Singleton2;
-
-import dagger.Module2;
-import dagger.Provides2;
-
-
-@Module2
+@Module
 public class TestModule {
 
-    @Singleton2
-    @Provides2
+    @Singleton
+    @Provides
     LoggerApp provideLogger() {
         return new LoggerApp();
     }

@@ -1,11 +1,9 @@
 package ox.com.daggertest;
 
-
-import javax.inject.Singleton2;
-
 import dagger.Component;
+import orchextra.javax.inject.Singleton;
 
-@Singleton2
+@Singleton
 @Component(modules = TestModule.class)
 public interface TestComponent {
 

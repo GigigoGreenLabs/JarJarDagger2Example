@@ -14,18 +14,33 @@ dependencies {
 }
 
 shadowJar {
-    relocate 'javax.inject.Inject', 'javax.inject.Inject2'
-    relocate 'javax.inject.Named','javax.inject.Named2'
-    relocate 'javax.inject.Provider','javax.inject.Provider2'
-    relocate 'javax.inject.Qualifier','javax.inject.Qualifier2'
-    relocate 'javax.inject.Scope','javax.inject.Scope2'
-    relocate 'javax.inject.Singleton','javax.inject.Singleton2'
-    relocate 'dagger.Lazy','dagger.Lazy2'
-    relocate 'dagger.MembersInjector','dagger.MembersInjector2'
-    relocate 'dagger.Module','dagger.Module2'
-    relocate 'dagger.Provides','dagger.Provides2'
-    relocate 'dagger.Provides$Type','dagger.Provides$Type2'
-    relocate 'dagger.internal','dagger.internal2'
-    relocate 'dagger.producers','dagger.producers2'
+    relocate 'javax.inject.Inject', 'orchextra.javax.inject.Inject'
+    relocate 'javax.inject.Named', 'orchextra.javax.inject.Named'
+    relocate 'javax.inject.Provider', 'orchextra.javax.inject.Provider'
+    relocate 'javax.inject.Qualifier', 'orchextra.javax.inject.Qualifier'
+    relocate 'javax.inject.Scope', 'orchextra.javax.inject.Scope'
+    relocate 'javax.inject.Singleton', 'orchextra.javax.inject.Singleton'
+    relocate 'dagger.Lazy', 'orchextra.dagger.Lazy'
+    relocate 'dagger.MembersInjector', 'orchextra.dagger.MembersInjector'
+    relocate 'dagger.Module', 'orchextra.dagger.Module'
+    relocate 'dagger.Provides', 'orchextra.dagger.Provides'
+    relocate 'dagger.Provides$Type', 'orchextra.dagger.Provides$Type'
+    relocate 'dagger.internal', 'orchextra.dagger.internal'
+    relocate 'dagger.producers', 'orchextra.dagger.producers'
     classifier = ''
+}
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives sourcesJar
+    archives javadocJar
 }
